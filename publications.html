@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>可视媒体计算研究所-简介</title>
+  <meta name="description" content="可视媒体计算研究所，视觉、媒体与计算交叉的创新研究。">
+  <style>
+    :root{--bg:#f7fafc;--card:#fff;--muted:#6b7280;--accent:#0f172a}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,'Helvetica Neue',Arial,'Noto Sans SC',sans-serif;background:var(--bg);color:var(--accent);line-height:1.5}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border-bottom:1px solid #e6e9ee;position:sticky;top:0;z-index:50}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:72px;height:72px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:#0ea5a1;color:white;font-weight:700}
+    nav{display:flex;gap:12px;align-items:center}
+    a{color:var(--accent);text-decoration:none}
+    .navlink{padding:8px 10px;border-radius:8px}
+    .navlink:hover{background:#eef2f7}
+    .hero{display:flex;gap:24px;align-items:center;padding:36px 0}
+    .hero .title{font-size:28px;font-weight:700;margin:0}
+    .tagline{color:var(--muted);margin-top:6px}
+    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    footer{padding:20px 0;color:var(--muted);font-size:14px;text-align:center}
+    
+    /* 汉堡菜单样式 */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+      z-index: 51;
+    }
+    
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: var(--accent);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.98);
+      z-index: 50;
+      padding: 80px 20px 20px;
+      overflow-y: auto;
+    }
+    
+    .mobile-nav.active {
+      display: block;
+    }
+    
+    .mobile-nav a {
+      display: block;
+      padding: 15px 0;
+      font-size: 18px;
+      border-bottom: 1px solid #e6e9ee;
+      color: var(--accent);
+    }
+    
+    .mobile-nav a:hover {
+      background: #eef2f7;
+      padding-left: 10px;
+    }
+    
+    @media (max-width:800px){
+      .hero{flex-direction:column;align-items:flex-start}
+      .logo{width:56px;height:56px}
+      .grid.cols-3{grid-template-columns:repeat(1,1fr)}
+      nav{display:none}
+      
+      /* 显示汉堡菜单 */
+      .menu-toggle {
+        display: flex;
+      }
+    }
+    
+    li.before{
+      content: "[" counter(bracket-counter) "]";
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+      <div class="brand">
+      <div class="logo" aria-hidden="true" style="background-color:white;">
+          <img src="imgs/intro/LOGO.png" width="60" height="60" style="background-color:white;">
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:19px">青海大学可视媒体计算研究所</div>
+          <div style="font-size:13px;color:var(--muted)">Institute of Computational Visual Media</div>
+        </div>
+      </div>
+
+      <!-- 桌面端导航 -->
+      <nav aria-label="主导航">
+        <a class="navlink" href="index.html">简介</a>
+        <a class="navlink" href="members.html">成员</a>
+        <a class="navlink" href="news.html">新闻</a>
+        <a class="navlink" href="publications.html">论文</a>
+        <a class="navlink" href="projects.html">项目</a>
+        <a class="navlink" href="teaching.html">教学</a>
+        <a class="navlink" href="contact.html">联系方式</a>
+      </nav>
+      
+      <!-- 汉堡菜单按钮 -->
+      <div class="menu-toggle" id="menuToggle" aria-label="菜单">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+  
+  <!-- 移动端导航菜单 -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">简介</a>
+    <a href="members.html">成员</a>
+    <a href="news.html">新闻</a>
+    <a href="publications.html">论文</a>
+    <a href="projects.html">项目</a>
+    <a href="teaching.html">教学</a>
+    <a href="contact.html">联系方式</a>
+  </div>
+
+  <main class="container" style="background-color:white; box-shadow: 4px 4px 10px #bbb;">
+    <section style="margin-top:12px">
+      <h2 style="font-size:16px;margin-bottom:8px">2025</h2>
+      <ol style="padding-left:18px; text-align: justify;">
+        <li style="margin-bottom:8px;">
+          Zheng-Jun Du, Jia-Wei Zhou, Kang Li, Jian-Yu Hao, Zi-Kang Huang, Kun Xu, Fast Video Recoloring via Curve-based Palettes, IEEE Transactions on Image Processing (IEEE TIP), vol. 34, pp. 5920-5934, 2025.
+        </li>
+        <li style="margin-bottom:8px;">
+          Zheng-Jun Du, Qing-Quan Li, Yi-Cheng Rui, Yu-Li Liu, Yu-Ting Wu, Dong Li, Bing-Feng Seng, Yi-Fan Xuan and Fa-Bo Feng, DeepAP: Deep Learning-based Aperture Photometry Feasibility Assessment and Aperture Size Prediction, Research in Astronomy and Astrophysics (RAA), vol. 25, No. 10, 2025.
+        </li>
+        <li>
+          Zi-Yu Zhang, Bing-Feng Seng, Ya-Feng Du, Kang Li, Zhe-Cheng Wang, Zheng-Jun Du, Semantic Palette-Guided Color Propagation, IEEE International Conference on Multimedia & Expo (ICME 2025).
+        </li>
+        <li>
+          Yuli Liu, YuAn Zhang. Diversity-Promoting Recommendation with Dual-Objective Optimization and Dual Consideration. Accepted by Transactions on Knowledge and Data Engineering, TKDE 2025.
+        </li>
+        <li>
+          Yuli Liu, Wenjun Kong, Cheng Luo, Weizhi Ma, Why Generate When You Can Transform? Unleashing Generative Attention for Dynamic Recommendation, ACM MM 2025.
+        </li>
+        <li>
+         Liang Han, Xu Zhang, Haichuan Song*, Kanle Shi, Yu-Shen Liu*, Zhizhong Han. SparseRecon: Neural Implicit Surface Reconstruction from Sparse Views with Feature and Depth Consistencies, ICCV 2025.
+        </li>
+        <li>
+         Yachao Cui, Kaiguang Wang, Hongli Yu, Xiaoxu Guo, Han Cao.*KLLMs4Rec: Knowledge graph-enhanced LLMs sentiment extraction for personalized recommendations. Expert Systems with Applications, 2025, 282: 127430.
+        </li>
+      </ol>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y4"></span> 可视媒体计算研究所</div>
+  </footer>
+  
+  <script>
+    document.getElementById('y4').textContent = new Date().getFullYear();
+    
+    // 汉堡菜单功能
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    menuToggle.addEventListener('click', function() {
+      menuToggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      
+      // 防止背景滚动
+      if (mobileNav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // 点击菜单项后关闭菜单
+    const mobileNavLinks = mobileNav.querySelectorAll('a');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        menuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+    
+    // 点击菜单外部区域关闭菜单
+    mobileNav.addEventListener('click', function(e) {
+      if (e.target === mobileNav) {
+        menuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>

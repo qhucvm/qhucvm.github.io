@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>可视媒体计算研究所-简介</title>
+  <meta name="description" content="可视媒体计算研究所，视觉、媒体与计算交叉的创新研究。">
+  <style>
+    :root{--bg:#f7fafc;--card:#fff;--muted:#6b7280;--accent:#0f172a}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,'Helvetica Neue',Arial,'Noto Sans SC',sans-serif;background:var(--bg);color:var(--accent);line-height:1.5}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border-bottom:1px solid #e6e9ee;position:sticky;top:0;z-index:50}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:72px;height:72px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:#0ea5a1;color:white;font-weight:700}
+    nav{display:flex;gap:12px;align-items:center}
+    a{color:var(--accent);text-decoration:none}
+    .navlink{padding:8px 10px;border-radius:8px}
+    .navlink:hover{background:#eef2f7}
+    .hero{display:flex;gap:24px;align-items:center;padding:36px 0}
+    .hero .title{font-size:28px;font-weight:700;margin:0}
+    .tagline{color:var(--muted);margin-top:6px}
+    .card{background:var(--card);border-radius:1px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+    .grid{display:grid;gap:16px}
+    .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    footer{padding:20px 0;color:var(--muted);font-size:14px;text-align:center}
+    
+    /* 汉堡菜单样式 */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+      z-index: 51;
+    }
+    
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: var(--accent);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.98);
+      z-index: 50;
+      padding: 80px 20px 20px;
+      overflow-y: auto;
+    }
+    
+    .mobile-nav.active {
+      display: block;
+    }
+    
+    .mobile-nav a {
+      display: block;
+      padding: 15px 0;
+      font-size: 18px;
+      border-bottom: 1px solid #e6e9ee;
+      color: var(--accent);
+    }
+    
+    .mobile-nav a:hover {
+      background: #eef2f7;
+      padding-left: 10px;
+    }
+    
+    /* 新增：学术带头人卡片网格布局 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    
+    /* 调整卡片内布局 */
+    .faculty{
+      text-align: center;
+      padding: 5px 2px;
+      box-shadow: -2px 2px 4px #bbb;
+    }
+    .faculty img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 12px;
+    }
+    .faculty.name {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .faculty.title {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .faculty.email {
+      font-size: 12px;
+      color: #0f172a;
+    }
+
+    @media (max-width:800px){
+      .hero{flex-direction:column;align-items:flex-start}
+      .logo{width:56px;height:56px}
+      .grid.cols-4{grid-template-columns:repeat(2,1fr)}
+      .grid.cols-3{grid-template-columns:repeat(1,1fr)}
+      nav{display:none}
+      
+      /* 显示汉堡菜单 */
+      .menu-toggle {
+        display: flex;
+      }
+      
+      /* 响应式调整 */
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width:500px){
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+      <div class="brand">
+        <div class="logo" aria-hidden="true" style="background-color:white;">
+          <img src="imgs/intro/LOGO.png" width="60" height="60" style="background-color:white;">
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:19px">青海大学可视媒体计算研究所</div>
+          <div style="font-size:13px;color:var(--muted)">Institute of Computational Visual Media</div>
+        </div>
+      </div>
+
+      <!-- 桌面端导航 -->
+      <nav aria-label="主导航">
+        <a class="navlink" href="index.html">简介</a>
+        <a class="navlink" href="members.html">成员</a>
+        <a class="navlink" href="news.html">新闻</a>
+        <a class="navlink" href="publications.html">论文</a>
+        <a class="navlink" href="projects.html">项目</a>
+        <a class="navlink" href="teaching.html">教学</a>
+        <a class="navlink" href="contact.html">联系方式</a>
+      </nav>
+      
+      <!-- 汉堡菜单按钮 -->
+      <div class="menu-toggle" id="menuToggle" aria-label="菜单">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+  
+  <!-- 移动端导航菜单 -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">简介</a>
+    <a href="members.html">成员</a>
+    <a href="news.html">新闻</a>
+    <a href="publications.html">论文</a>
+    <a href="projects.html">项目</a>
+    <a href="teaching.html">教学</a>
+    <a href="contact.html">联系方式</a>
+  </div>
+
+  <main class="container" style="background-color:white; box-shadow: 4px 4px 10px #bbb;">
+    <h1 style="font-size:20px;margin-top:18px; text-align:center;">全职教师</h1>
+    <section style="margin-top:12px">
+      <!-- 修改为4列网格布局 -->
+      <div class="grid">
+        <article class="card faculty">
+          <img src="imgs/members/dzj.jpg" alt="杜正君">
+          <div class="name"><a target="_blank" href="https://zhengjun-du.github.io" style="color:blue">杜正君</a></div>
+          <div class="title">副教授，所长</div>
+          <div class="email">dzj@qhu.edu.cn</div>
+        </article>
+
+        <article class="card faculty">
+          <img src="imgs/members/lxj.jpg" alt="刘晓静">
+          <div class="name"><a target="_blank" href="https://cs.qhu.edu.cn/jxgz/jxysz/szgk/27280.htm" style="color:blue">刘晓静</a></div>
+          <div class="title">教授，副院长</div>
+          <div class="email">liuxj@qhu.edu.cn</div>
+        </article>
+
+        <article class="card faculty">
+          <img src="imgs/members/lzq.jpg" alt="刘志强">
+          <div class="name"><a target="_blank" href="https://cs.qhu.edu.cn/jxgz/jxysz/szgk/21878.htm" style="color:blue">刘志强</a></div>
+          <div class="title">副教授，信息中心主任</div>
+          <div class="email">landoif_phin@163.com</div>
+        </article>
+
+        <article class="card faculty">
+          <img src="imgs/members/hl.jpg" alt="韩亮">
+          <div class="name"><a target="_blank" href="https://cs.qhu.edu.cn/jxgz/jxysz/szgk/21849.htm" style="color:blue">韩&nbsp;&nbsp;&nbsp;亮</a></div>
+          <div class="title">副教授</div>
+          <div class="email">397406660@qq.com</div>
+        </article>
+      </div>
+
+      <div class="grid" style="margin-top: 15px;">
+        <article class="card faculty">
+          <img src="imgs/members/yp.jpg" alt="杨培">
+          <div class="name"><a target="_blank" href="https://cs.qhu.edu.cn/jxgz/jxysz/szgk/22176.htm" style="color:blue">杨&nbsp;&nbsp;&nbsp;培</a></div>
+          <div class="title">副教授</div>
+          <div class="email">2016990018@qhu.edu.cn</div>
+        </article>
+
+        <article class="card faculty">
+          <img src="imgs/members/lyl.jpg" alt="刘玉利">
+          <div class="name"><a target="_blank" href="https://l-lyl.github.io/yuli-liu.github.io" style="color:blue">刘玉利</a></div>
+          <div class="title">副教授</div>
+          <div class="email">liuyuli012@gmail.com</div>
+        </article>
+
+        <article class="card faculty">
+          <img src="imgs/members/yhh.jpg" alt="姚河花">
+          <div class="name"><a target="_blank" href="https://cs.qhu.edu.cn/jxgz/jxysz/szgk/21888.htm" style="color:blue">姚河花</a></div>
+          <div class="title">讲师</div>
+          <div class="email">yaohehuath@126.com</div>
+        </article>
+
+        <article class="card faculty">
+          <img src="imgs/members/ryf.jpg" alt="任洋甫">
+          <div class="name"><a target="_blank" href="https://renyangfu.github.io" style="color:blue">任洋甫</a></div>
+          <div class="title">讲师</div>
+          <div class="email">renyangfu@qhu.edu.cn</div>
+        </article>
+      </div>
+
+      <div class="grid" style="margin-top: 15px;">
+        <article class="card faculty">
+          <img src="imgs/members/cyc.jpg" alt="崔亚超">
+          <div class="name"><a target="_blank" href="https://yachaocui.github.io" style="color:blue">崔亚超</a></div>
+          <div class="title">讲师</div>
+          <div class="email">yachaocui@qhu.edu.cn</div>
+        </article>
+
+        <article class="card faculty">
+          <img src="imgs/members/tcq.jpg" alt="唐传谦">
+          <div class="name"><a target="_blank" href="https://cs.qhu.edu.cn/jxgz/jxysz/szgk/d3ad65f8e99f4955ba86cbab2c6c3e32.htm" style="color:blue">唐传谦</a></div>
+          <div class="title">讲师</div>
+          <div class="email">chuanqiantang@163.com</div>
+        </article>
+
+        <article class="card faculty">
+          <img src="imgs/members/sbf.jpg" alt="僧冰枫">
+          <div class="name"><a target="_blank" href="#" style="color:blue">僧冰枫</a></div>
+          <div class="title">讲师</div>
+          <div class="email">sbf@qhu.edu.cn</div>
+        </article>
+
+        <article class="card faculty">
+          <img src="imgs/members/ws.jpg" alt="王松">
+          <div class="name"><a target="_blank" href="https://cs.qhu.edu.cn/jxgz/jxysz/szgk/8d633e91842f475cb382f89f82409529.htm" style="color:blue">王&nbsp;&nbsp;&nbsp;松</a></div>
+          <div class="title">副教授</div>
+          <div class="email">ws@qhu.edu.cn</div>
+        </article>
+      </div>
+
+
+    </section>
+
+    <section style="margin-top:18px">
+      <h1 style="font-size:20px;margin-top:18px; text-align:center;">在读研究生</h1>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;text-align:center;">
+        <div class="card">盛文杏</div>
+        <div class="card">李清泉</div>
+        <div class="card">郭树育</div>
+        <div class="card">张&nbsp;&nbsp;&nbsp;飞</div>
+        <div class="card">彭俊豪</div>
+        <div class="card">褚文豪</div>
+        <div class="card">邓宏亮</div>
+        <div class="card">彭永清</div>
+        <div class="card">江&nbsp;&nbsp;&nbsp;培</div>
+        <div class="card">刘艺博</div>
+        <div class="card">马旭林</div>
+        <div class="card">张敖锋</div>
+        <div class="card">马文旭</div>
+        <div class="card">焦保渊</div>
+        <div class="card">黄一羚</div>
+        <div class="card">雷睿哲</div>
+        <div class="card">徐学伟</div>
+        <div class="card">吴家欣</div>
+        <div class="card">熊启涵</div>
+        <div class="card">刘三源</div>
+        <div class="card">张玉龙</div>
+        <div class="card">周学伟</div>
+        <div class="card">付博康</div>
+        <div class="card">王佳豪</div>
+        <div class="card">杜&nbsp;&nbsp;&nbsp;欣</div>
+        <div class="card">冀红茹</div>
+        <div class="card">陈思成</div>
+        <div class="card">李露林</div>
+        <div class="card">王世杰</div>
+        <div class="card">章登基</div>
+        <div class="card">李&nbsp;&nbsp;&nbsp;越</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y3"></span> 可视媒体计算研究所</div>
+  </footer>
+  
+  <script>
+    document.getElementById('y3').textContent = new Date().getFullYear();
+    
+    // 汉堡菜单功能
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    menuToggle.addEventListener('click', function() {
+      menuToggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      
+      // 防止背景滚动
+      if (mobileNav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // 点击菜单项后关闭菜单
+    const mobileNavLinks = mobileNav.querySelectorAll('a');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        menuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+    
+    // 点击菜单外部区域关闭菜单
+    mobileNav.addEventListener('click', function(e) {
+      if (e.target === mobileNav) {
+        menuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>

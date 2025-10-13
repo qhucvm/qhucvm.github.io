@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>可视媒体计算研究所-简介</title>
+  <meta name="description" content="可视媒体计算研究所，视觉、媒体与计算交叉的创新研究。">
+  <style>
+    :root{--bg:#f7fafc;--card:#fff;--muted:#6b7280;--accent:#0f172a}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,'Helvetica Neue',Arial,'Noto Sans SC',sans-serif;background:var(--bg);color:var(--accent);line-height:1.5}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{background:rgba(255,255,255,0.75);backdrop-filter:blur(6px);border-bottom:1px solid #e6e9ee;position:sticky;top:0;z-index:50}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:72px;height:72px;display:flex;align-items:center;justify-content:center;border-radius:12px;background:#0ea5a1;color:white;font-weight:700}
+    nav{display:flex;gap:12px;align-items:center}
+    a{color:var(--accent);text-decoration:none}
+    .navlink{padding:8px 10px;border-radius:8px}
+    .navlink:hover{background:#eef2f7}
+    .hero{display:flex;gap:24px;align-items:center;padding:15px 0}
+    .hero .title{font-size:28px;font-weight:700;margin:0}
+    .tagline{color:var(--muted);margin-top:6px}
+    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    footer{padding:20px 0;color:var(--muted);font-size:14px;text-align:center}
+    
+    /* 汉堡菜单样式 */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+      z-index: 51;
+    }
+    
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: var(--accent);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.98);
+      z-index: 50;
+      padding: 80px 20px 20px;
+      overflow-y: auto;
+    }
+    
+    .mobile-nav.active {
+      display: block;
+    }
+    
+    .mobile-nav a {
+      display: block;
+      padding: 15px 0;
+      font-size: 18px;
+      border-bottom: 1px solid #e6e9ee;
+      color: var(--accent);
+    }
+    
+    .mobile-nav a:hover {
+      background: #eef2f7;
+      padding-left: 10px;
+    }
+    
+    @media (max-width:800px){
+      .hero{flex-direction:column;align-items:flex-start}
+      .logo{width:56px;height:56px}
+      .grid.cols-3{grid-template-columns:repeat(1,1fr)}
+      nav{display:none}
+      
+      /* 显示汉堡菜单 */
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+      <div class="brand">
+        <div class="logo" aria-hidden="true" style="background-color:white;">
+          <img src="imgs/intro/LOGO.png" width="60" height="60" style="background-color:white;">
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:19px">青海大学可视媒体计算研究所</div>
+          <div style="font-size:13px;color:var(--muted)">Institute of Computational Visual Media</div>
+        </div>
+      </div>
+
+      <!-- 桌面端导航 -->
+      <nav aria-label="主导航">
+        <a class="navlink" href="index.html">简介</a>
+        <a class="navlink" href="members.html">成员</a>
+        <a class="navlink" href="news.html">新闻</a>
+        <a class="navlink" href="publications.html">论文</a>
+        <a class="navlink" href="projects.html">项目</a>
+        <a class="navlink" href="teaching.html">教学</a>
+        <a class="navlink" href="contact.html">联系方式</a>
+      </nav>
+      
+      <!-- 汉堡菜单按钮 -->
+      <div class="menu-toggle" id="menuToggle" aria-label="菜单">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+  
+  <!-- 移动端导航菜单 -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">简介</a>
+    <a href="members.html">成员</a>
+    <a href="news.html">新闻</a>
+    <a href="publications.html">论文</a>
+    <a href="projects.html">项目</a>
+    <a href="teaching.html">教学</a>
+    <a href="contact.html">联系方式</a>
+  </div>
+
+  <main class="container" style="background-color:white; box-shadow: 4px 4px 10px #bbb;">
+    <section class="hero">
+      <div style="flex:1">
+        <h2 style="margin:0 0 12px 0;font-size:18px; text-align: center;">媒体所简介</h2>
+        <p class="tagline" style="text-align: justify; color:black ">
+        青海大学可视媒体计算研究所（英文：Institute of Computational Visual Media，简称：媒体所），由清华大学胡事民院士于2017年牵头成立，专注于计算机图形学、计算机视觉、可视化技术、信息检索、虚拟现实以及非物质文化遗产数字化保护等前沿领域的高水平研究。自成立以来，媒体所汇聚了一支强大的科研团队，包括12位全职教师，以及邀请了清华大学胡事民院士、张松海副教授、徐昆副教授、陶品副教授，以及英国卡迪夫大学的Ralph Martin教授等多位国内外知名学者担任学术带头人。 截至目前，媒体所已培养硕士研究生20名，在读研究生30余名。<br><br>
+
+        近几年，媒体所主持和参与了多项国家级和省部级项目，包括国家自然基金项目6项、青海省科技厅重大项目1项、应用基础研究项目2项、春晖计划项目1项。这些项目的成功实施，不仅推动了学科的发展，也为社会带来了实际效益。在学术成果方面，媒体所的教师们在国内外知名期刊和会议上发表了50余篇论文，其中，10余论文发表在ACM TOG, IEEE TVCG, IEEE TIP, ICCV, NeurIPS, SIGIR, TKDE, KDD 等CCF A类重要期刊和会议。<br><br>
+
+        此外，媒体所积极与本地企业建立合作关系，助力区域企事业单位实现数字化转型。我们与青海日报社共同建设了青海省融合媒体重点实验室，推动深度学习技术与新闻媒体业务的有机融合，为行业智能化升级与数字化转型提供关键技术支持。 同时，我们也与青海圣源地毯集团开展了深入合作，支持该藏毯企业在图像智能生成与图像处理等方向实现技术突破，推进设计环节的智能化进程，从而有效降低设计成本、提升生产效率。<br><br>
+
+        展望未来，媒体所将紧密围绕以绿色算力为引领的新质生产力的发展，并在数字天文观测、文物保护、数字文旅等多个领域展开研究，为本地人才培养和经济建设做出贡献。
+      </p>
+    </section>
+
+    <section style="margin-top:1px">
+      <h2 style="margin:0 0 12px 0; font-size:18px; text-align: center;" >主要研究方向</h2>
+      <div class="grid cols-3">
+        <div class="card" style="box-shadow: 4px 4px 10px #bbb; text-align: center; border-radius:2px;">
+          <strong>计算图形学</strong>
+          <div style="color:var(--muted);font-size:13px;margin-top:8px">三维重建、几何视觉、虚拟现实</div>
+        </div>
+        <div class="card" style="box-shadow: 4px 4px 10px #bbb; text-align: center; border-radius:2px;">
+          <strong>计算机视觉</strong>
+          <div style="color:var(--muted);font-size:13px;margin-top:8px">图像/视频理解、编辑、表征学习</div>
+        </div>
+        <div class="card" style="box-shadow: 4px 4px 10px #bbb; text-align: center; border-radius:2px;">
+          <strong>多模态计算</strong>
+          <div style="color:var(--muted);font-size:13px;margin-top:8px">信息检索、推荐、交互与大模型</div>
+        </div>
+        <div class="card" style="box-shadow: 4px 4px 10px #bbb; text-align: center; border-radius:2px;">
+          <strong>天文数据处理</strong>
+          <div style="color:var(--muted);font-size:13px;margin-top:8px">AI+天文数据处理（时域天文）</div>
+        </div>
+        <div class="card" style="box-shadow: 4px 4px 10px #bbb; text-align: center; border-radius:2px;">
+          <strong>非物质文化遗产保护</strong>
+          <div style="color:var(--muted);font-size:13px;margin-top:8px">图像修复、实景建模、古文物数字化</div>
+        </div>
+      </div>
+      <img src="imgs/intro/research-field.png" width="100%"  style="background-color:white; margin-top: 10px;">
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> 可视媒体计算研究所
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // 汉堡菜单功能
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    menuToggle.addEventListener('click', function() {
+      menuToggle.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      
+      // 防止背景滚动
+      if (mobileNav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // 点击菜单项后关闭菜单
+    const mobileNavLinks = mobileNav.querySelectorAll('a');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        menuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+    
+    // 点击菜单外部区域关闭菜单
+    mobileNav.addEventListener('click', function(e) {
+      if (e.target === mobileNav) {
+        menuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html>
