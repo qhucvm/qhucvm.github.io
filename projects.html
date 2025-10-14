@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>项目</title>
-  <meta name="description" content="可视媒体计算研究所, 视觉、媒体与计算交叉的创新研究。">
+  <title>科研项目</title>
+  <meta name="description" content="可视媒体计算研究所，视觉、媒体与计算交叉的创新研究。">
   <style>
     :root{--bg:#f7fafc;--card:#fff;--muted:#6b7280;--accent:#0f172a}
     *{box-sizing:border-box}
@@ -20,14 +20,11 @@
     .hero{display:flex;gap:24px;align-items:center;padding:36px 0}
     .hero .title{font-size:28px;font-weight:700;margin:0}
     .tagline{color:var(--muted);margin-top:6px}
-    .card{background:var(--card);border-radius:2px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,0.04);height:100%}
+    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
     .grid{display:grid;gap:16px}
     .grid.cols-3{grid-template-columns:repeat(3,1fr)}
     .grid.cols-2{grid-template-columns:repeat(2,1fr)}
     footer{padding:20px 0;color:var(--muted);font-size:14px;text-align:center}
-    .card{
-      box-shadow: -2px 2px 4px #bbb;
-    }
     
     /* 汉堡菜单样式 */
     .menu-toggle {
@@ -91,14 +88,6 @@
       padding-left: 10px;
     }
     
-    /* 新增的项目网格布局 */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 12px;
-    }
-    
     @media (max-width:800px){
       .hero{flex-direction:column;align-items:flex-start}
       .logo{width:56px;height:56px}
@@ -109,17 +98,16 @@
       .menu-toggle {
         display: flex;
       }
-      
-      /* 移动端改为单列 */
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
+    }
+    
+    li.before{
+      content: "[" counter(bracket-counter) "]";
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="container" style="display:flex;justify-content:space-between;align-items:center;" >
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
       <div class="brand">
       <div class="logo" aria-hidden="true" style="background-color:white;">
           <img src="imgs/intro/LOGO.png" width="60" height="60" style="background-color:white;">
@@ -162,57 +150,56 @@
   </div>
 
   <main class="container" style="background-color:white; box-shadow: 4px 4px 10px #bbb;">
-    <!-- 修改为两列布局 -->
-    <div class="projects-grid">
-      <article class="card">
-        <div style="font-weight:700">藏毯图像生成及颜色编辑关键技术研究</div>
-        <div style="color:var(--muted);font-size:13px;margin-top:6px">国家自然科学基金项目 (2026-2029), 62562052, 项目负责人：杜正君</div>
-      </article>
+    <section style="margin-top:12px">
+      <h2 style="font-size:16px;margin-bottom:8px">国家级项目</h2>
+      <ol style="padding-left:18px; text-align: justify;">
+        <li style="margin-bottom:8px;">
+          国家自然科学基金项目，藏毯图像生成及颜色编辑关键技术研究 (No: 62562052)，2026-2029，负责人：杜正君。
+        </li>
+        <li style="margin-bottom:8px;">
+          国家自然科学基金项目，面向动态认知的推荐增强生成关键技术研究 (No: 62502253)，2026-2029，负责人：刘玉利。
+        </li>
+        <li style="margin-bottom:8px;">
+          国家自然科学基金项目，基于文化特征的唐卡图像建模绘制及艺术评价体系研究 (No: 61862053)，2019-2022，负责人：刘晓静。
+        </li>
+        <li style="margin-bottom:8px;">
+          国家自然科学基金项目，面向动态认知的推荐增强生成关键技术研究 (No: 61863031)，2019-2022，负责人：杜正君。
+        </li>
+        <li style="margin-bottom:8px;">
+          国家自然科学基金项目，全景视频感知理解及呈现关键技术研究 (No: 61866031)，2019-2022，负责人：杨培。
+        </li>
+        <li style="margin-bottom:8px;">
+          国家自然科学基金项目，基于结构传播的唐卡图像修复方法研究 (No: 61440021)，2015-2015，负责人：刘晓静。
+        </li>
+      </ol>
 
-      <article class="card">
-        <div style="font-weight:700">面向动态认知的推荐增强生成关键技术研究</div>
-        <div style="color:var(--muted);font-size:13px;margin-top:6px">国家自然科学基金项目 (2026-2029), 62502253, 项目负责人：刘玉利</div>
-      </article>
+      <h2 style="font-size:16px;margin-bottom:8px">省部级项目</h2>
+      <ol style="padding-left:18px; text-align: justify;">
+        <li style="margin-bottom:8px;">
+          青海省科技厅项目，图像量化技术在藏毯设计中的应用研究 (No: 2023-ZJ-951Q)，2023-2025，负责人：杜正君。
+        </li>
+        <li style="margin-bottom:8px;">
+          青海省昆仑英才高端创新创业人才项目，2024-2027，负责人：杜正君。
+        </li>
+      </ol>
 
-      <article class="card">
-        <div style="font-weight:700">基于文化特征的唐卡图像建模绘制及艺术评价体系研究</div>
-        <div style="color:var(--muted);font-size:13px;margin-top:6px">国家自然科学基金项目 (2019-2012), 61862053, 项目负责人：刘晓静</div>
-      </article>
+      <h2 style="font-size:16px;margin-bottom:8px">其它项目</h2>
+      <ol style="padding-left:18px; text-align: justify;">
+        <li style="margin-bottom:8px;">
+          青海大学科研实力提升项目，巡天策略优化及实时天文图像处理关键技术研究 (No: 2025KTSQ26)，2025-2027，负责人：杜正君。
+        </li>
+      </ol>
 
-      <article class="card">
-        <div style="font-weight:700">面向智能机器人感知的三维场景重建与分析</div>
-        <div style="color:var(--muted);font-size:13px;margin-top:6px">国家自然科学基金项目 (2019-2022), 61863031, 项目负责人：杜正君</div>
-      </article>
+    </section>
 
-      <article class="card">
-        <div style="font-weight:700">全景视频感知理解及呈现关键技术研究</div>
-        <div style="color:var(--muted);font-size:13px;margin-top:6px">国家自然科学基金项目 (2019-2022), 61866031, 项目负责人：杨&nbsp;&nbsp;&nbsp;培</div>
-      </article>
-
-      <article class="card">
-        <div style="font-weight:700">基于结构传播的唐卡图像修复方法研究</div>
-        <div style="color:var(--muted);font-size:13px;margin-top:6px">国家自然科学基金项目 (2015-2015), 61440021, 项目负责人：刘晓静</div>
-      </article>
-
-      <article class="card">
-        <div style="font-weight:700">图像量化技术在藏毯设计中的应用研究</div>
-        <div style="color:var(--muted);font-size:13px;margin-top:6px">青海省科技厅项目 (2023-2025), 2023-ZJ-951Q, 项目负责人：杜正君</div>
-      </article>
-
-       <article class="card">
-        <div style="font-weight:700">巡天策略优化及实时天文图像处理关键技术研究</div>
-        <div style="color:var(--muted);font-size:13px;margin-top:6px">青海大学科研实力提升项目 (2025-2027), 2025KTSQ26, 项目负责人：杜正君</div>
-      </article>
-
-    </div>
   </main>
 
   <footer>
-    <div class="container">© <span id="y5"></span> 可视媒体计算研究所</div>
+    <div class="container">© <span id="y4"></span> 可视媒体计算研究所</div>
   </footer>
   
   <script>
-    document.getElementById('y5').textContent = new Date().getFullYear();
+    document.getElementById('y4').textContent = new Date().getFullYear();
     
     // 汉堡菜单功能
     const menuToggle = document.getElementById('menuToggle');
