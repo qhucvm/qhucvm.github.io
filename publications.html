@@ -100,8 +100,24 @@
       }
     }
     
-    li.before{
+    /* 修改列表样式为[1], [2], [3]格式 */
+    .bracket-list {
+      counter-reset: bracket-counter;
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .bracket-list li {
+      counter-increment: bracket-counter;
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 32px;
+    }
+    
+    .bracket-list li::before {
       content: "[" counter(bracket-counter) "]";
+      position: absolute;
+      left: 0;
     }
   </style>
 </head>
@@ -152,11 +168,11 @@
   <main class="container" style="background-color:white; box-shadow: 4px 4px 10px #bbb;">
     <section style="margin-top:12px">
       <h2 style="font-size:16px;margin-bottom:8px">2025</h2>
-      <ol style="padding-left:18px; text-align: justify;">
-        <li style="margin-bottom:8px;">
+      <ol class="bracket-list" style="text-align: justify;">
+        <li>
           Zheng-Jun Du, Jia-Wei Zhou, Kang Li, Jian-Yu Hao, Zi-Kang Huang, Kun Xu, Fast Video Recoloring via Curve-based Palettes, IEEE Transactions on Image Processing (IEEE TIP), vol. 34, pp. 5920-5934, 2025.
         </li>
-        <li style="margin-bottom:8px;">
+        <li>
           Zheng-Jun Du, Qing-Quan Li, Yi-Cheng Rui, Yu-Li Liu, Yu-Ting Wu, Dong Li, Bing-Feng Seng, Yi-Fan Xuan and Fa-Bo Feng, DeepAP: Deep Learning-based Aperture Photometry Feasibility Assessment and Aperture Size Prediction, Research in Astronomy and Astrophysics (RAA), vol. 25, No. 10, 2025.
         </li>
         <li>
